@@ -1,0 +1,29 @@
+﻿@using GuideProject.WebUserInterface.Models
+@model PersonViewModel
+@{
+    ViewBag.Title = "PersonDelete";
+}
+
+<h2>PersonDelete</h2>
+
+<p>Aşağodaki Kişiyi silmek istediğinizden emin misiniz?</p>
+<table>
+    <tr>
+        <td><b>Adı:</b></td>
+        <td>@Model.Person.PersonName</td>
+    </tr>
+    <tr>
+        <td><b>Soyadı:</b></td>
+        <td>@Model.Person.PersonLastName</td>
+    </tr>
+    <tr>
+        <td><b>Yaşı:</b></td>
+        <td>@Model.Person.PersonAge</td>
+    </tr>
+</table>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+    <input type="submit" class="btn btn-danger" value="Sil" />
+}

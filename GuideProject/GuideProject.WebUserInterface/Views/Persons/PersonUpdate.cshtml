@@ -1,0 +1,39 @@
+﻿@using GuideProject.WebUserInterface.Models
+@model PersonViewModel
+@{
+    ViewBag.Title = "PersonUpdate";
+}
+
+<h2>PersonUpdate</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x=>x.Person.PersonID)
+    <div class="input-group">
+        <div class="input-group-addon" id="txtName">
+            Ad
+        </div>
+        @Html.TextBoxFor(x => x.Person.PersonName, new { @class = "form-control", placeholder = "Kişi Adı", aria_describedby = "txtName" })
+    </div>
+    <br />
+    <div class="input-group">
+        <div class="input-group-addon" id="txtLastName">
+            Soyad
+        </div>
+        @Html.TextBoxFor(x => x.Person.PersonLastName, new { @class = "form-control", placeholder = "Kişi Soyadı", aria_describedby = "txtLastName" })
+    </div>
+    <br />
+    <div class="input-group">
+        <div class="input-group-addon" id="txtAge">
+            Yaş
+        </div>
+        @Html.TextBoxFor(x => x.Person.PersonAge, new { @class = "form-control", placeholder = "Kişi Yaşı", aria_describedby = "txtAge" })
+    </div>
+    <br />
+    <div class="input-group">
+        <input type="submit" class="btn btn-success" value="Güncelle" />
+    </div>
+
+}
+

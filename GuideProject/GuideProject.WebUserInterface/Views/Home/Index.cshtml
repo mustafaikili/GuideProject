@@ -1,0 +1,56 @@
+﻿ @using GuideProject.WebUserInterface.Models
+@model HomeViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>HomePage</h2>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            @Html.ActionLink("Yeni Kişi", "Add", "Persons", null, new { @class = "btn btn-primary" })
+        </div>
+        <br />
+        <ul class="list-group">
+            <li class="list-group-item active">
+                Kişiler
+            </li>
+            @foreach (var item in Model.Person)
+            {
+                <li class="list-group-item">
+                    @Html.ActionLink("Düzenle", "PersonUpdate", "Persons", new { PersonID = item.PersonID }, new { @class = "btn btn-warning btn-xs" })
+                    @* ActionLink içerisindeki PersonID ile Action içindeki parametre ismi aynı olmalı ki eşitleyebilsin *@
+                    @Html.ActionLink("Sil", "PersonDelete", "Persons", new { ID = item.PersonID }, new { @class = "btn btn-danger btn-xs" })
+                    <span class="glyphicon glyphicon-user"></span> @(item.PersonName + " " + item.PersonLastName) (<i>@item.PersonAge</i>)
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-6">
+        @*<div>
+            @Html.ActionLink("Yeni Adres", "Yeni", "Adresler", null, new { @class = "btn btn-primary" })
+        </div>
+        <br />
+        <ul class="list-group">
+            <li class="list-group-item">
+                Adresler
+            </li>
+            @foreach (var item in Model.Adresler)
+            {
+                <li class="list-group-item">
+                    @Html.ActionLink("Düzenle", "Duzenle", "Adres", new { ID = item.ID }, new { @class = "btn btn-warning btn-xs" })
+                    @Html.ActionLink("Sil", "Sil", "Adres", new { ID = item.ID }, new { @class = "btn btn-danger btn-xs" })
+                    <span class="glyphicon glyphicon-home"></span>@(item.AdresTanim)
+                </li>
+            }
+        </ul>*@
+    </div>
+</div>
+
