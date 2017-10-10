@@ -13,5 +13,6 @@ namespace GuideProject.Business.Abstract
         Persons GetByID(int? personID);
         void Update(Persons person);
         ICollection<Persons> GetList();
+        void Delete(Persons person);
     }
 }

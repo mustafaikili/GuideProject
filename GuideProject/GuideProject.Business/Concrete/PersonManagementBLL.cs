@@ -36,5 +36,11 @@ namespace GuideProject.Business.Concrete
         {
             _personDAL.Update(person);
         }
+
+
+        public void Delete(Persons person)
+        {
+            _personDAL.Delete(person);
+        }
     }
 }
