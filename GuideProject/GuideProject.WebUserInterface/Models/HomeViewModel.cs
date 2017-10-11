@@ -10,5 +10,6 @@ namespace GuideProject.WebUserInterface.Models
     {
         public ICollection<Persons> Person { get; set; }
         public List<Addresses> Address { get; set; }
+        //
     }
 }
